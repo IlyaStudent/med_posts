@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:med_posts/features/posts/data/models/post.dart';
+import 'package:med_posts/features/posts/data/models/post_full_info.dart';
 import 'package:med_posts/features/posts/data/repositories/posts_repository.dart';
 import 'package:med_posts/features/posts/presentation/widgets/error_desc_widget.dart';
 import 'package:med_posts/features/posts/presentation/widgets/loading_indicator.dart';
@@ -13,7 +13,8 @@ class PostsBuilder extends StatefulWidget {
 }
 
 class _PostsBuilderState extends State<PostsBuilder> {
-  late Future<List<Post>> postsData = PostsRepository().getAllPosts();
+  late Future<List<PostFullInfo>> postsData =
+      PostsRepository().getAllInfoPosts();
 
   @override
   Widget build(BuildContext context) {

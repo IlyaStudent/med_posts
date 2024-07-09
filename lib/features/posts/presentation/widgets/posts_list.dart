@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:med_posts/features/posts/data/models/post.dart';
+import 'package:med_posts/features/posts/data/models/post_full_info.dart';
 import 'package:med_posts/features/posts/presentation/widgets/post_widget.dart';
 
 class PostsList extends StatelessWidget {
-  final List<Post> postsList;
+  final List<PostFullInfo> postsList;
   const PostsList({super.key, required this.postsList});
 
   @override

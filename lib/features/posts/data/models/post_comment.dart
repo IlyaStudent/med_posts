@@ -1,10 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'comment.g.dart';
+part 'post_comment.g.dart';
 
 @JsonSerializable()
-class Comment {
-  Comment({
+class PostComment {
+  PostComment({
     required this.postId,
     required this.id,
     required this.name,
@@ -12,9 +12,9 @@ class Comment {
     required this.body,
   });
 
-  factory Comment.fromJson(Map<String, dynamic> json) =>
-      _$CommentFromJson(json);
-  Map<String, dynamic> toJson() => _$CommentToJson(this);
+  factory PostComment.fromJson(Map<String, dynamic> json) =>
+      _$PostCommentFromJson(json);
+  Map<String, dynamic> toJson() => _$PostCommentToJson(this);
 
   final int postId;
   final int id;

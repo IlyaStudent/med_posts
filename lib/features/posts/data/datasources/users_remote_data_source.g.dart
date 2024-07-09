@@ -21,9 +21,9 @@ class _UsersRemoteDataSource implements UsersRemoteDataSource {
   String? baseUrl;
 
   @override
-  Future<List<User>> getUsers() async {
+  Future<List<User>> getUsersById(int id) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'id': id};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
@@ -34,7 +34,7 @@ class _UsersRemoteDataSource implements UsersRemoteDataSource {
     )
             .compose(
               _dio.options,
-              '/users',
+              '/users/',
               queryParameters: queryParameters,
               data: _data,
             )

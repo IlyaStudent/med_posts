@@ -9,6 +9,6 @@ abstract class UsersRemoteDataSource {
   factory UsersRemoteDataSource(Dio dio, {String baseUrl}) =
       _UsersRemoteDataSource;
 
-  @GET("/users")
-  Future<List<User>> getUsers();
+  @GET("/users/")
+  Future<List<User>> getUsersById(@Query('id') int id);
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:med_posts/features/posts/data/models/comment.dart';
+import 'package:med_posts/features/posts/data/models/post_comment.dart';
 
 class CommentWidget extends StatelessWidget {
-  final List<Comment>? commentList;
+  final List<PostComment> commentList;
   const CommentWidget({super.key, required this.commentList});
 
   @override
@@ -12,9 +12,9 @@ class CommentWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Комментарии: (${commentList?.length}):"),
+          Text("Комментарии: (${commentList.length}):"),
           Text(
-            "${commentList?.last.email}: \t${commentList?.last.body}",
+            "${commentList.last.email}: \t${commentList.last.body}",
           ),
         ],
       ),

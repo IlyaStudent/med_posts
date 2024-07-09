@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:med_posts/features/posts/data/models/post.dart';
-import 'package:med_posts/features/posts/presentation/future_builders/comments_builder.dart';
-import 'package:med_posts/features/posts/presentation/future_builders/user_builder.dart';
+import 'package:med_posts/features/posts/data/models/post_full_info.dart';
+import 'package:med_posts/features/posts/presentation/widgets/comment_widget.dart';
+import 'package:med_posts/features/posts/presentation/widgets/user_widget.dart';
 
 class PostWidget extends StatelessWidget {
-  final Post post;
+  final PostFullInfo post;
   const PostWidget({
     super.key,
     required this.post,
@@ -15,18 +15,18 @@ class PostWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        UserBuilder(userId: post.userId),
+        UserWidget(username: post.user.name, useremail: post.user.email),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Text(post.title.toUpperCase()),
+          child: Text(post.post.title.toUpperCase()),
         ),
         const SizedBox(
           height: 30,
         ),
-        Text(post.body),
+        Text(post.post.body),
         Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
-            child: CommentsBuilder(postId: post.id)),
+            child: CommentWidget(commentList: post.commentsList)),
         const Divider(),
       ],
     );

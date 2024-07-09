@@ -21,20 +21,20 @@ class _CommentsRemoteDataSource implements CommentsRemoteDataSource {
   String? baseUrl;
 
   @override
-  Future<List<Comment>> getComments() async {
+  Future<List<PostComment>> getCommentsByPostId(int postId) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'postId': postId};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Comment>>(Options(
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<PostComment>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/comments',
+              '/comments/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -44,7 +44,7 @@ class _CommentsRemoteDataSource implements CommentsRemoteDataSource {
               baseUrl,
             ))));
     var value = _result.data!
-        .map((dynamic i) => Comment.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => PostComment.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

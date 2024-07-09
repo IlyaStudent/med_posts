@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:med_posts/features/posts/data/models/comment.dart';
+import 'package:med_posts/features/posts/data/models/post_comment.dart';
 
 import 'package:retrofit/http.dart';
 
@@ -10,6 +10,6 @@ abstract class CommentsRemoteDataSource {
   factory CommentsRemoteDataSource(Dio dio, {String baseUrl}) =
       _CommentsRemoteDataSource;
 
-  @GET("/comments")
-  Future<List<Comment>> getComments();
+  @GET("/comments/")
+  Future<List<PostComment>> getCommentsByPostId(@Query('postId') int postId);
 }
