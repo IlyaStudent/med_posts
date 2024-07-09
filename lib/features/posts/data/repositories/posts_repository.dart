@@ -28,10 +28,10 @@ class PostsRepository {
 
   // API и так возвращает сортированный список комментариев по айди
   // но в задании почему то был на этом акецент, поэтому внедрил сортировку
-  Future<List<PostComment>> _getCommentsById(int postId) async {
-    var allComments =
+  Future<List<PostComment>?> _getCommentsById(int postId) async {
+    final allComments =
         await _commentsRemoteDataSource.getCommentsByPostId(postId);
-    allComments.sort((a, b) => a.id.compareTo(b.id));
+    allComments?.sort((a, b) => a.id.compareTo(b.id));
     return allComments;
   }
 

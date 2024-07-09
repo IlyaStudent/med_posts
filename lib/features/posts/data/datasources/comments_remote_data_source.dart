@@ -11,5 +11,5 @@ abstract class CommentsRemoteDataSource {
       _CommentsRemoteDataSource;
 
   @GET("/comments/")
-  Future<List<PostComment>> getCommentsByPostId(@Query('postId') int postId);
+  Future<List<PostComment>>? getCommentsByPostId(@Query('postId') int postId);
 }
