@@ -43,7 +43,7 @@ class PostsRepository {
         post: post, user: user.first, commentsList: commentsList);
   }
 
-  Future<List<PostFullInfo>> getAllInfoPosts() async {
+  Future<List<PostFullInfo>> getAllPostsInfo() async {
     final postsList = await _getAllPosts();
     var res = Future.wait(postsList.map((e) => _getPostFullInfo(e)));
     return res;

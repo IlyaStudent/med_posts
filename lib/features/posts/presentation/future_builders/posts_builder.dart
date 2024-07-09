@@ -14,7 +14,7 @@ class PostsBuilder extends StatefulWidget {
 
 class _PostsBuilderState extends State<PostsBuilder> {
   late Future<List<PostFullInfo>> postsData =
-      PostsRepository().getAllInfoPosts();
+      PostsRepository().getAllPostsInfo();
 
   @override
   Widget build(BuildContext context) {
